@@ -1,10 +1,160 @@
-<template>
+<!DOCTYPE html>
+<html lang="en">
 
- <!-- HTML 區塊 -->
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>中一科技</title>
+   <link rel="stylesheet" href="css/bootstrap.min.css">
+   <link rel="stylesheet" href="css/my.css">
+   <link rel="stylesheet" href="css/all.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+   <style>
+      body,
+      /* 全局樣式 */
+      html {
+         margin: 0;
+         padding: 0;
+         font-family: Arial, sans-serif;
+         overflow-x: hidden;
+      }
 
- <!-- SECTION s01 首頁 -->
- <section id="s01" class="s01">
+      .s01 {
+         /* 第一頁樣式 */
+         width: 100%;
+         height: 100vh;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         text-align: center;
+         background-color: rgba(255, 255, 255, 1.0);
+      }
+
+      .navbar {
+         /* 導覽列樣式 */
+         position: absolute;
+         bottom: 0;
+         width: 100%;
+         background-color: rgba(255, 255, 255, 1.0);
+         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+         display: flex;
+         justify-content: space-around;
+         align-items: center;
+         font-size: 1rem;
+         padding: 1rem 0;
+         z-index: 1000;
+         transition: transform 0.3s ease, top 0.3s ease;
+      }
+
+      .navbar.fixed {
+         position: fixed;
+         top: 0;
+         bottom: auto;
+         background-color: rgba(255, 255, 255, 1.0);
+         transform: translateY(0);
+         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .navbar a {
+         text-decoration: none;
+         color: rgba(0, 0, 0, 1.0);
+         font-size: 0.8rem;
+         font-weight: bold;
+      }
+
+      .navbar a:hover {
+         color: rgba(0, 0, 0, 1.0);
+      }
+
+      .navbar-nav .nav-item {
+         /* 導覽檔圖標調整 */
+         margin-right: 10px;
+         /* 設置每個導覽項的間距 */
+      }
+
+      .navbar-nav .nav-link {
+         font-size: 1.0rem;
+         /* 放大字體 */
+         text-align: center;
+         /* 居中文本 */
+         display: flex;
+         /* 使用 flex 佈局 */
+         justify-content: center;
+         /* 水平居中 */
+         align-items: center;
+         /* 垂直居中 */
+      }
+
+      .navbar-nav .nav-link i {
+         font-size: 1.5rem;
+         /* 放大圖標字體大小 */
+         margin-bottom: 5px;
+         /* 圖標與文字的間距 */
+         display: block;
+         /* 設置圖標獨占一行 */
+      }
+
+      .navbar-nav .nav-link:hover {
+         color: rgba(201, 42, 42, 1.0);
+         /* 懸停時更改颜色 */
+      }
+
+      #carouselS09 {
+         display: flex;
+         animation: scrollCarousel 90s linear infinite;
+         /* 動畫持續時間延長為 90 秒 */
+      }
+
+      #carouselS09 img {
+         width: 420px;
+         height: 300px;
+         margin-right: 10px;
+         flex-shrink: 0;
+      }
+
+      full-width-image {
+         width: 100vw;
+         /* 設置寬度為視口寬度 */
+         max-width: none;
+         /* 確保不會受其他寬度限制 */
+         background-size: cover;
+         background-position: center;
+      }
+
+      @keyframes scrollCarousel {
+         0% {
+            transform: translateX(0);
+         }
+
+         100% {
+            transform: translateX(calc(-100%));
+         }
+      }
+
+      @media screen and (max-width: 768px) {
+         .navbar-nav .nav-link {
+            font-size: 1rem;
+            /* 缩小字體 */
+            width: 60px;
+            /* 减小寬度 */
+         }
+
+         .navbar-nav .nav-link i {
+            font-size: 1.5rem;
+            /* 缩小圖標 */
+         }        
+      }
+   </style>
+</head>
+
+<body>
+
+   <!-- SECTION s01 首頁 -->
+   <section id="s01">
       <div class="col-12 p-8 text-center">
          <div style="font-size: 5rem;font-weight: bold; color: rgba(0, 0, 0, 1.0); letter-spacing: 0.5rem; margin: 0">
             中一科技</div>
@@ -73,11 +223,8 @@
       </nav>
    </section>
 
-   
-
    <!-- 註冊須知 Modal -->
-   <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerNoticeLabel"
-      aria-hidden="true">
+   <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerNoticeLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
          <div class="modal-content custom-modal">
             <div class="modal-header text-center">
@@ -114,82 +261,6 @@
       </div>
    </div>
 
-
-
-
-
-   <!-- registerModal -->
-   <!-- <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-xl">
-         <div class="modal-content">
-            <div class="modal-header text-bg-warning">
-               <h1 class="modal-title fs-4 fw-900" id="exampleModalLabel">客戶註冊</h1>
-               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-               <div class="row">
-                  <div class="col-6">
-                     <div class="d-flex flex-column h-100">
-                        <div class="display-6 fw-900 my-3">註冊須知</div>
-                        <p>1.註冊為客戶詢價及廠商報價使用。</p>
-                        <p>2.聯絡人及E-mail為必填項目。</p>
-                        <p>3.系統預設帳號名稱為 貴司之統一編號。</p>
-                        <p>4.系統預設之密碼為 貴司之稅籍編號。</p>
-                        <div class="form-check form-switch mt-auto">
-                           <input type="checkbox" class="form-check-input is-invalid" role="switch" id="chk01"
-                              name="chk01">
-                           <label for="chk01" class="form-check-label">不同意</label>
-                           <div class="valid-feedback">.</div>
-                           <div class="invalid-feedback">須同意始能註冊!</div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-6">
-                     <div class="mb-3">
-                        <label for="username_reg" class="form-label">公司統編</label>
-                        <input type="text" class="form-control is-invalid" id="username_reg" name="username_reg"
-                           placeholder="請輸入統一編號">
-                        <div class="valid-feedback" id="regModal_username_valid_feedback">符合規則</div>
-                        <div class="invalid-feedback" id="regModal_username_invalid_feedback">不符合規則</div>
-                     </div>
-                     <div class="mb-3">
-                        <label for="password_reg" class="form-label">密碼</label>
-                        <input type="password" class="form-control is-invalid" id="password_reg" name="password_reg"
-                           placeholder="5~10字數">
-                        <div class="valid-feedback">符合規則</div>
-                        <div class="invalid-feedback">不符合規則</div>
-                     </div>
-                     <div class="mb-3">
-                        <label for="re_password_reg" class="form-label">確認密碼</label>
-                        <input type="password" class="form-control is-invalid" id="re_password_reg"
-                           name="re_password_reg">
-                        <div class="valid-feedback">符合規則</div>
-                        <div class="invalid-feedback">不符合規則</div>
-                     </div>
-                     <div class="mb-3">
-                        <label for="" class="form-label">聯絡人</label>
-                        <input type="text" class="form-control is-invalid" placeholder="2~5字數">
-                        <div class="valid-feedback">符合規則</div>
-                        <div class="invalid-feedback">不符合規則</div>
-                     </div>
-                     <div class="mb-3">
-                        <label for="email_reg" class="form-label">Email</label>
-                        <input type="email" class="form-control is-invalid" id="email_reg" name="email_reg"
-                           placeholder="5~20字數">
-                        <div class="valid-feedback">符合規則</div>
-                        <div class="invalid-feedback">不符合規則</div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="modal-footer">
-               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
-               <button type="button" class="btn btn-primary" id="ok_btn_reg">確認</button>
-            </div>
-         </div>
-      </div>
-   </div> -->
-
    <!-- loginModal -->
    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -222,7 +293,7 @@
    <section id="s03">
       <div class="container" style="width: 100%; max-width: none;">
          <div class="bg-secondary py-5 bg-cover"
-            style="background-image: url(img src="images/23-2150141924.jpg" alt="23-2150141924"); height: 100vh; background-size: cover; background-position: center; position: relative; background-attachment: fixed; ">
+            style="background-image: url(images/23-2150141924.jpg); height: 100vh; background-size: cover; background-position: center; position: relative; background-attachment: fixed; ">
          </div>
       </div>
       <div class="container" style="padding: 40px;">
@@ -250,7 +321,6 @@
                </p>
             </div>
          </div>
-
       </div>
    </section>
 
@@ -280,7 +350,7 @@
          <div class="row justify-content-center align-items-center">
             <div class="col-8">
                <div class="bg-cover rounded-3 shadow-lg mx-auto "
-                  style=" margin-top: 50px; width: 100%; max-width: 1000px; height: 400px; background-image: url(img src="images/galen-crout.jpg" alt="galen-crout"); background-size: cover;background-position: center;">
+                  style=" margin-top: 50px; width: 100%; max-width: 1000px; height: 400px; background-image: url(images/galen-crout.jpg); background-size: cover;background-position: center;">
                </div>
             </div>
          </div>
@@ -315,6 +385,7 @@
       </div>
    </section>
 
+   <!-- SECTION s05 設備技術 -->
    <section id="s05" class="py-5">
       <div class="container text-center">
          <h3 id="s05-0">設備技術</h3>
@@ -322,7 +393,7 @@
          <div class="row justify-content-center align-items-center">
             <div class="col-8">
                <div class="bg-cover rounded-3 shadow-lg mx-auto "
-                  style="margin-top: 50px; width: 100%; max-width: 1000px; height: 400px; background-image: url(img src="images/27411-110469.jpg" alt="27411-110469"); background-size: cover; background-position: center;">
+                  style="margin-top: 50px; width: 100%; max-width: 1000px; height: 400px; background-image: url(images/27411-110469.jpg); background-size: cover; background-position: center;">
                </div>
             </div>
          </div>
@@ -356,6 +427,7 @@
       </div>
    </section>
 
+   <!-- SECTION s06 產業應用 -->
    <section id="s06" class="py-5">
       <div class="container text-center mb-5">
          <h3 id="s06-0">產業應用</h3>
@@ -387,13 +459,14 @@
       </div>
    </section>
 
+   <!-- SECTION s07 解決方案 -->
    <section id="s07" class="py-5">
       <div class="text-center">
          <h3 id="s07-0">解決方案</h3>
          <p>Solution！</p>
       </div>
       <div class="full-width-image"
-         style="width: 100vw; height: 600px; margin: 0; padding: 0; background-image: url(images/factory/1048944-22000880.jpg); background-size: cover; background-position: center; background-repeat: no-repeat;">
+         style="width: 100vw; height: 600px; margin: 0; padding: 0; background-image: url(images/1048944-22000880.jpg); background-size: cover; background-position: center; background-repeat: no-repeat;">
       </div>
       <div class="container">
          <div class="row d-flex align-items-center" style="gap: 0;">
@@ -443,7 +516,7 @@
       </div>
    </section>
 
-
+   <!-- SECTION s08 客戶詢價 & 廠商報價 -->
    <section id="s08" style="padding: 40px;">
       <div class="container">
          <div class="row d-flex align-items-stretch justify-content-between" style="gap: 20px;">
@@ -451,7 +524,7 @@
                <i class="fa-solid fa-file-invoice fa-3x text-dark d-none d-md-block"></i>
                <h5 class="text-dark my-3">客戶詢價</h5>
                <div class="bg-cover rounded-3 shadow-lg mx-auto "
-                  style="margin-top: 50px; width: 100%; height: 250px; background-image: url(img src="images/3117273-4715627.jpg" alt="3117273-4715627"); background-size: cover; background-position: center;">
+                  style="margin-top: 50px; width: 100%; height: 250px; background-image: url(images/3117273-4715627.jpg); background-size: cover; background-position: center;">
                </div>
                <p class="text-dark">
                   若本公司的生產設備及服務態度，符合貴司的需求，懇請提供 貴司不吝提供產品圖說，讓我司有跟 貴司共同攜手創造未來的機會。
@@ -468,7 +541,7 @@
                <i class="fa-solid fa-file-contract fa-3x text-dark d-none d-md-block"></i>
                <h5 class="text-dark my-3">廠商報價</h5>
                <div class="bg-cover rounded-3 shadow-lg mx-auto "
-                  style="margin-top: 50px; width: 100%; height: 250px; background-image: url(images/work/3604968.jpg); background-size: cover; background-position: center;">
+                  style="margin-top: 50px; width: 100%; height: 250px; background-image: url(images/3604968.jpg); background-size: cover; background-position: center;">
                </div>
                <p class="text-dark">
                   我司提供現擬發包的案子圖說規範供你參考，我們歡迎你的參與，共同為客戶創造最大的價值。
@@ -488,10 +561,10 @@
       </div>
    </section>
 
-   <!-- section 10 加入我們 -->
-   <section id="s10">
+   <!-- section 09 加入我們 -->
+   <section id="s09">
       <div class="row">
-         <div class="col-md-12 bg-cover" style="background-image: url(img src="images/7550439-1.jpg" alt="7550439-1");">
+         <div class="col-md-12 bg-cover" style="background-image: url(images/7550439-1.jpg);">
             <div class="row ">
                <div class="col-md-4 p-3 text-light rounded-3 shadow-lg">
                   <div class="h2 fw-900 my-1">研發夥伴</div>
@@ -528,8 +601,8 @@
       </div>
    </section>
 
-   <!-- section 11 友站和版權 -->
-   <section id="s11">
+   <!-- section 10 友站和版權 -->
+   <section id="s10">
       <div class="container">
          <ul class="nav">
             <li class="nav-item">
@@ -558,29 +631,16 @@
       </div>
    </section>
 
-
-
-
    <script src="js/jquery-3.7.1.min.js"></script>
    <script src="js/bootstrap.bundle.min.js"></script>
-   <script src="js/wow.min.js"></script>
    <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
+   <script src="js/wow.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
- 
-
-  </template>
-
-
-<script setup>
-
-// JavaScript 或函式邏輯區塊
-
-var city;
+   <script>
+      var city;
       var selectedCity; //紀錄所選取的縣市名稱
       var selectedArea; //紀錄所選取的鄉鎮區名稱
-
-
       var flag_username_reg = false;
       var flag_password_reg = false;
       var flag_re_password_reg = false;
@@ -588,13 +648,10 @@ var city;
       var flag_username_login = false;
       var flag_password_login = false;
 
-
       const navbar = document.getElementById('navbar');            // 獲取 DOM 元素
       const s01 = document.getElementById('s01');
-
       window.addEventListener('scroll', () => {                    // 滾動事件監聽
          const s01Bottom = s01.getBoundingClientRect().bottom;    // 第一頁底部距離視窗的距離
-
          if (s01Bottom <= 0) {                                    // 當第一頁滾出視窗時，導覽列固定在頂部並跳出來
             navbar.classList.add('fixed');
          } else {                                                 // 當第一頁可見時，導覽列回到初始位置                 
@@ -608,7 +665,6 @@ var city;
             e.preventDefault();
             const targetId = link.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
-
             window.scrollTo({                                   // 平滑滾動到目標區域
                top: targetElement.offsetTop,
                behavior: 'smooth'
@@ -699,64 +755,6 @@ var city;
             allowOutsideClick: false,
          });
       }
-
-
-      // 即時監聽 username_reg
-      // $("#username_reg").bind("input propertychange", function () {   // 取得使用者輸入的值            
-      //     const ubn = $(this).val().trim();                           // 去除空白
-
-      //     if (/^\d{8}$/.test(ubn.toString())) {                        // 驗證是否為 8 位數字，並轉換成字串                
-      //         if (isValidUnifiedBusinessNumber(ubn)) {                // 驗證統一編號是否合法                    
-      //             var JSONdata = {};                                  // 傳遞至後端 API 確認統一編號是否可以使用
-      //             JSONdata["username_reg"] = ubn.toString();
-      //             console.log(JSON.stringify(JSONdata));
-
-      //             $.ajax({                                            // AJAX 傳送請求
-      //                 type: "POST",
-      //                 url: "1140213_zy_member_control.php?action=checkuni",
-      //                 contentType: "application/json",                // 確保為 JSON
-      //                 dataType: "json",
-      //                 data: JSON.stringify(JSONdata),
-      //                 success: showdata_checkuni,
-      //                 error: function () {
-      //                     Swal.fire({
-      //                         title: "API介接錯誤?",
-      //                         text: "1140213_zy_member_control.php?action=checkuni",
-      //                         icon: "error"
-      //                     });
-      //                 }
-      //             });
-
-      //             $(this).removeClass("is-invalid");                  // 更新輸入框的狀態（合法）
-      //             $(this).addClass("is-valid");
-      //             $("#regModal_username_invalid_feedback").text("");
-      //         } else {                                                // 如果統一編號不合法                    
-      //             $(this).removeClass("is-valid");
-      //             $(this).addClass("is-invalid");
-      //             $("#regModal_username_invalid_feedback").text("統一編號格式錯誤或不合法");
-      //         }
-      //     } else {                                                   // 如果長度不是 8 或非數字
-      //         $(this).removeClass("is-valid");
-      //         $(this).addClass("is-invalid");
-      //         $("#regModal_username_invalid_feedback").text("統一編號必須是 8 位數字");
-      //     }
-      // });
-
-      // function isValidUnifiedBusinessNumber(ubn) {                    // 驗證統一編號的函式 
-      //     ubn = ubn.tostring();                                       // 確保 ubn 為字串
-      //     if (!/^\d{8}$/.test(ubn)) return false;                     // 檢查是否為 8 位數字（該條件已在主邏輯中處理，但為保險仍加此檢查）                                                           
-      //     const weights = [1, 2, 1, 2, 1, 2, 4, 1];
-      //     let sum = 0;
-
-      //     // 加權計算
-      //     for (let i = 0; i < weights.length; i++) {
-      //         let product = ubn[i] * weights[i];
-      //         sum += Math.floor(product / 10) + (product % 10);
-      //     }
-
-      //     // 驗證規則
-      //     return sum % 10 === 0 || (ubn[6] === '7' && (sum + 1) % 10 === 0);
-      // }
 
       //即時監聽username_reg
       $("#username_reg").bind("input propertychange", function () {
@@ -876,8 +874,7 @@ var city;
       //ok_btn_reg按鈕監聽
       $("#ok_btn_reg").click(function () {
          if (flag_username_reg && flag_password_reg && flag_re_password_reg && flag_email_reg && flag_chk01_reg) {
-            //傳遞至後端API執行註冊行為
-            //input: {"username" : "owner04", "password" : "123456", "email" : "owner01@test.com"}
+            //傳遞至後端API執行註冊行為            
             var JOSNdata = {};
             JOSNdata["username"] = $("#username_reg").val();
             JOSNdata["password"] = $("#password_reg").val();
@@ -955,8 +952,6 @@ var city;
          setCookie("Uid01", "", 7);
          location.href = "1140213_zy_main-01.html";
       });
-
-
 
       function showdata_reg(data) {
          console.log(data);
@@ -1060,170 +1055,7 @@ var city;
          }
          return "";
       }
+   </script>
+</body>
 
-
-
-</script>
-
-<style scoped>
-
-@import"css/bootstrap.min.css";
-@import"css/my.css";
-@import"css/all.min.css";
-
-@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
-
-/* CSS 樣式區塊 */
-
-body,
-      /* 全局樣式 */
-      html {
-         margin: 0;
-         padding: 0;
-         font-family: Arial, sans-serif;
-         overflow-x: hidden;
-      }
-
-      .s01 {
-         /* 第一頁樣式 */
-         width: 100%;
-         height: 100vh;
-         display: flex;
-         flex-direction: column;
-         justify-content: center;
-         align-items: center;
-         text-align: center;
-         background-color: rgba(255, 255, 255, 1.0);
-      }
-
-      .navbar {
-         /* 導覽列樣式 */
-         position: absolute;
-         bottom: 0;
-         width: 100%;
-         background-color: rgba(255, 255, 255, 1.0);
-         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-         display: flex;
-         justify-content: space-around;
-         align-items: center;
-         font-size: 1rem;
-         padding: 1rem 0;
-         z-index: 1000;
-         transition: transform 0.3s ease, top 0.3s ease;
-      }
-
-
-      .navbar.fixed {
-         position: fixed;
-         top: 0;
-         bottom: auto;
-         background-color: rgba(255, 255, 255, 1.0);
-         transform: translateY(0);
-         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      }
-
-      .navbar a {
-         text-decoration: none;
-         color: rgba(0, 0, 0, 1.0);
-         font-size: 0.8rem;
-         font-weight: bold;
-      }
-
-      .navbar a:hover {
-         color: rgba(0, 0, 0, 1.0);
-      }
-
-      .navbar-nav .nav-item {
-         /* 導覽檔圖標調整 */
-         margin-right: 10px;
-         /* 設置每個導覽項的間距 */
-      }
-
-      .navbar-nav .nav-link {
-         font-size: 1.0rem;
-         /* 放大字體 */
-         text-align: center;
-         /* 居中文本 */
-         display: flex;
-         /* 使用 flex 佈局 */
-         justify-content: center;
-         /* 水平居中 */
-         align-items: center;
-         /* 垂直居中 */
-      }
-
-      .navbar-nav .nav-link i {
-         font-size: 1.5rem;
-         /* 放大圖標字體大小 */
-         margin-bottom: 5px;
-         /* 圖標與文字的間距 */
-         display: block;
-         /* 設置圖標獨占一行 */
-      }
-
-      .navbar-nav .nav-link:hover {
-         color: rgba(201, 42, 42, 1.0);
-         /* 懸停時更改颜色 */
-      }
-
-      #carouselS09 {
-         display: flex;
-         animation: scrollCarousel 90s linear infinite;
-         /* 動畫持續時間延長為 90 秒 */
-      }
-
-      #carouselS09 img {
-         width: 420px;
-         height: 300px;
-         margin-right: 10px;
-         flex-shrink: 0;
-      }
-
-      full-width-image {
-         width: 100vw;
-         /* 設置寬度為視口寬度 */
-         max-width: none;
-         /* 確保不會受其他寬度限制 */
-         background-size: cover;
-         background-position: center;
-      }
-
-
-
-      @keyframes scrollCarousel {
-         0% {
-            transform: translateX(0);
-         }
-
-         100% {
-            transform: translateX(calc(-100%));
-         }
-      }
-
-      @media screen and (max-width: 768px) {
-         .navbar-nav .nav-link {
-            font-size: 1rem;
-            /* 缩小字體 */
-            width: 60px;
-            /* 减小寬度 */
-         }
-
-         .navbar-nav .nav-link i {
-            font-size: 1.5rem;
-            /* 缩小圖標 */
-         }
-
-         /* .s05-text, .s08-text {
-            z-index: 10;
-            background-color: rgba(0, 0, 0, 0.2);
-            color: var(--textcolor01);
-            margin: 15px;
-            box-shadow: 2px 2px 4px 2px #faf9f9;
-            border-radius: 15px;
-            padding: 15px;
-        } */
-      }
-
-</style>
+</html>
