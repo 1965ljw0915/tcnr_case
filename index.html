@@ -50,6 +50,7 @@
          transition: transform 0.3s ease, top 0.3s ease;
       }
 
+
       .navbar.fixed {
          position: fixed;
          top: 0;
@@ -125,6 +126,8 @@
          background-position: center;
       }
 
+
+
       @keyframes scrollCarousel {
          0% {
             transform: translateX(0);
@@ -146,12 +149,14 @@
          .navbar-nav .nav-link i {
             font-size: 1.5rem;
             /* 缩小圖標 */
-         }        
+         }
+
+         
       }
    </style>
 </head>
 
-<body>
+<body>h
 
    <!-- SECTION s01 首頁 -->
    <section id="s01" class="s01">
@@ -223,8 +228,11 @@
       </nav>
    </section>
 
+   
+
    <!-- 註冊須知 Modal -->
-   <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerNoticeLabel" aria-hidden="true">
+   <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerNoticeLabel"
+      aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
          <div class="modal-content custom-modal">
             <div class="modal-header text-center">
@@ -260,6 +268,7 @@
          </div>
       </div>
    </div>
+
 
    <!-- loginModal -->
    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -321,6 +330,7 @@
                </p>
             </div>
          </div>
+
       </div>
    </section>
 
@@ -385,7 +395,6 @@
       </div>
    </section>
 
-   <!-- SECTION s05 設備技術 -->
    <section id="s05" class="py-5">
       <div class="container text-center">
          <h3 id="s05-0">設備技術</h3>
@@ -427,7 +436,6 @@
       </div>
    </section>
 
-   <!-- SECTION s06 產業應用 -->
    <section id="s06" class="py-5">
       <div class="container text-center mb-5">
          <h3 id="s06-0">產業應用</h3>
@@ -459,7 +467,6 @@
       </div>
    </section>
 
-   <!-- SECTION s07 解決方案 -->
    <section id="s07" class="py-5">
       <div class="text-center">
          <h3 id="s07-0">解決方案</h3>
@@ -516,7 +523,7 @@
       </div>
    </section>
 
-   <!-- SECTION s08 客戶詢價 & 廠商報價 -->
+
    <section id="s08" style="padding: 40px;">
       <div class="container">
          <div class="row d-flex align-items-stretch justify-content-between" style="gap: 20px;">
@@ -631,16 +638,26 @@
       </div>
    </section>
 
+
+
+
    <script src="js/jquery-3.7.1.min.js"></script>
    <script src="js/bootstrap.bundle.min.js"></script>
    <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
    <script src="js/wow.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+
+
+
+
    <script>
+
       var city;
       var selectedCity; //紀錄所選取的縣市名稱
       var selectedArea; //紀錄所選取的鄉鎮區名稱
+
+
       var flag_username_reg = false;
       var flag_password_reg = false;
       var flag_re_password_reg = false;
@@ -648,10 +665,13 @@
       var flag_username_login = false;
       var flag_password_login = false;
 
+
       const navbar = document.getElementById('navbar');            // 獲取 DOM 元素
       const s01 = document.getElementById('s01');
+
       window.addEventListener('scroll', () => {                    // 滾動事件監聽
          const s01Bottom = s01.getBoundingClientRect().bottom;    // 第一頁底部距離視窗的距離
+
          if (s01Bottom <= 0) {                                    // 當第一頁滾出視窗時，導覽列固定在頂部並跳出來
             navbar.classList.add('fixed');
          } else {                                                 // 當第一頁可見時，導覽列回到初始位置                 
@@ -665,6 +685,7 @@
             e.preventDefault();
             const targetId = link.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
+
             window.scrollTo({                                   // 平滑滾動到目標區域
                top: targetElement.offsetTop,
                behavior: 'smooth'
@@ -755,6 +776,9 @@
             allowOutsideClick: false,
          });
       }
+
+
+      
 
       //即時監聽username_reg
       $("#username_reg").bind("input propertychange", function () {
@@ -874,7 +898,8 @@
       //ok_btn_reg按鈕監聽
       $("#ok_btn_reg").click(function () {
          if (flag_username_reg && flag_password_reg && flag_re_password_reg && flag_email_reg && flag_chk01_reg) {
-            //傳遞至後端API執行註冊行為            
+            //傳遞至後端API執行註冊行為
+            //input: {"username" : "owner04", "password" : "123456", "email" : "owner01@test.com"}
             var JOSNdata = {};
             JOSNdata["username"] = $("#username_reg").val();
             JOSNdata["password"] = $("#password_reg").val();
@@ -952,6 +977,8 @@
          setCookie("Uid01", "", 7);
          location.href = "1140213_zy_main-01.html";
       });
+
+
 
       function showdata_reg(data) {
          console.log(data);
@@ -1055,7 +1082,14 @@
          }
          return "";
       }
+
+
+
+
+
+
    </script>
+
 </body>
 
 </html>
