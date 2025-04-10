@@ -5,7 +5,7 @@
 <p class="fw-900">導覽列採浮動設計，至頂後自動吸附頂端。</p> 
 <p class="fw-900">頁面使用 Animate.css 自動跳數功能。</p>
 <p class="fw-900">頁面使用圖片自動輪播功能。</p>
-<img src="images/首頁.JPG" alt="程式擷圖-首頁" width="600">
-<img src="images/內頁 - 01 .JPG" alt="程式擷圖-內頁 - 01 .JPG" width="600">
-<img src="images/內頁 - 02 .JPG" alt="程式擷圖-內頁 - 02 .JPG" width="600">
-<img src="images/內頁 - 03 .JPG" alt="程式擷圖-內頁 - 03 .JPG" width="600">
+<img src="images/photo_1.JPG" alt="photo_1.JPG" width="600">
+<img src="images/photo_2.JPG" alt="photo_2.JPG" width="600">
+<img src="images/photo_3.JPG" alt="photo_3.JPG" width="600">
+<img src="images/photo_4.JPG" alt="photo_4.JPG" width="600">
